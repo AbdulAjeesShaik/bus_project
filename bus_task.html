@@ -1,0 +1,312 @@
+
+<html>
+
+   <head> 
+
+        <title> Task_10 </title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <style> 
+       
+           body{ background-color: pink; }
+         
+         /*  #ok{  margin-left: 120px; }  */
+            
+           #s{ text-align: center; color:black; }
+           
+         /*  table{text-align: center; }*/
+           
+         .abcd{margin:20 50 20 350 ;}
+         
+         th,td{text-align: center;}
+         
+        </style>
+        
+        
+  </head>
+  <body> 
+              
+      <div id="ok"><img src="https://www.urban-transport-magazine.com/wp-content/uploads/2021/03/AUTONOMOUS-ATAK-ELECTRIC_0-1024-1024x739.jpg" height="450px" width="1500px" ></div>
+
+         <div id="s">
+
+             From <select id="four" class="btn btn-outline-primary btn-sm" >
+
+                  <option value="">Select City</option>
+
+                  <option value="Hyderbad">Hyderbad</option>
+
+                  <option value="Bangalore">Bangalore</option>
+
+                  <option value="Chennai">Chennai</option>
+
+                  <option value="Delhi">Delhi</option>
+
+                  <option value="Visakhapatnam">Visakhapatnam</option>
+
+                  <option value="Mumbai">Mumbai</option>            
+
+             </select>
+
+
+                To <select id="five" class="btn btn-outline-primary btn-sm">
+
+                   <option value="">Select City</option>
+
+                   <option value="Hyderbad">Hyderbad</option>
+
+                   <option value="Bangalore">Bangalore</option>
+
+                   <option value="Chennai">Chennai</option>
+
+                   <option value="Delhi">Delhi</option>
+
+                   <option value="Visakhapatnam">Visakhapatnam</option>
+
+                   <option value="Mumbai">Mumbai</option>            
+
+                 </select>
+
+               <button onclick="tokyo()" class="btn btn-success btn-sm"> Get Details </button>
+           </div>      
+
+              <div id="professor"> </div>
+
+      
+      <script>
+   
+         var buses=[ { From:"Hyderbad", To:"Bangalore" ,  Travels:"Kaveri travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"Orange travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Delhi"  , Travels:"Morning Star travels", Arrival_time:"2:30pm" , Dept_Time:"9:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Hyderbad", To:"Visakhapatnam" , Travels:"Yamini travels", Arrival_time:"2:30pm" , Dept_Time:"10:30am" ,  No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Mumbai" , Travels:"Jagadish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+                    
+                     { From:"Bangalore", To:"Hyderbad" , Travels:"Kaveri travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Bangalore", To:"Chennai" , Travels:"Orange travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Bangalore", To:"Delhi" ,  Travels:"Morning Star travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+                     { From:"Bangalore", To:"Visakhapatnam" , Travels:"Yamini travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     {From:"Bangalore", To:"Mumbai" , Travels:"Jagadish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Chennai", To:"Hyderbad"  , Travels:"Kaveri travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Chennai", To:"Bangalore" , Travels:"Orange travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"    },
+  
+                     { From:"Chennai", To:"Delhi" , Travels:"Morning Star travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Chennai", To:"Visakhapatnam" , Travels:"Yamini travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     {From:"Chennai", To:"Mumbai" , Travels:"Jagadish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Delhi", To:"Hyderbad" ,  Travels:"Kaveri travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+                     { From:"Delhi", To:"Bangalore" , Travels:"Orange travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Delhi", To:"Chennai"  , Travels:"Morning Star travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Delhi", To:"Visakhapatnam" , Travels:"Yamini travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"    },
+  
+                     { From:"Delhi", To:"Mumbai" , Travels:"Jagadish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"    },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Kaveri travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Visakhapatnam", To:"Bangalore" , Travels:"Orange travels", ArrivalTime:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Visakhapatnam", To:"Chennai" ,  Travels:"Morning Star travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Visakhapatnam", To:"Delhi" , Travels:"Yamini travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Visakhapatnam", To:"Mumbai" , Travels:"Jagadish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     {From:"Mumbai", To:"Hyderbad"  , Travels:"Kaveri travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     {From:"Mumbai", To:"Bangalore" , Travels:"Orange travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"    },
+  
+                     { From:"Mumbai", To:"Chennai" , Travels:"Moning Star travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , N0_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Mumbai", To:"Delhi" , Travels:"Yamini travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Jagadish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+  
+                     
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"Karthik travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"uday travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Delhi"  , Travels:"venkatesh travels", Arrival_time:"2:30pm" , Dept_Time:"9:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Hyderbad", To:"Visakhapatnam" , Travels:"nag travels", Arrival_time:"2:30pm" , Dept_Time:"10:30am" ,  No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Mumbai" , Travels:"push travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+                    
+                     { From:"Bangalore", To:"Hyderbad" , Travels:"sravan travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Bangalore", To:"Chennai" , Travels:"pawan travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Bangalore", To:"Delhi" ,  Travels:"mahesh travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+                     { From:"Bangalore", To:"Visakhapatnam" , Travels:"gopal travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Bangalore", To:"Mumbai" , Travels:"rajadhani  travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Chennai", To:"Hyderbad"  , Travels:"assam  travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Chennai", To:"Bangalore" , Travels:"karnataka  travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"    },
+  
+                     { From:"Chennai", To:"Delhi" , Travels:"tamilnadu travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Chennai", To:"Visakhapatnam" , Travels:"AP travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     {From:"Chennai", To:"Mumbai" , Travels:"sai travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Delhi", To:"Hyderbad" ,  Travels:"Tokyo travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+                     { From:"Delhi", To:"Bangalore" , Travels:"professor travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Delhi", To:"Chennai"  , Travels:"Helsinki travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Delhi", To:"Visakhapatnam" , Travels:"Berlin travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"    },
+  
+                     { From:"Delhi", To:"Mumbai" , Travels:"Polamalo travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"    },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"vijayawada travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Visakhapatnam", To:"Bangalore" , Travels:"Juber travels", ArrivalTime:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Visakhapatnam", To:"Chennai" ,  Travels:"vamsi Star travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Visakhapatnam", To:"Delhi" , Travels:"Raheem travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Visakhapatnam", To:"Mumbai" , Travels:"Ritish travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Mumbai", To:"Hyderbad"  , Travels:"Venu travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Mumbai", To:"Bangalore" , Travels:"Ravindra travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"    },
+  
+                     { From:"Mumbai", To:"Chennai" , Travels:"Rehaman travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , N0_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Mumbai", To:"Delhi" , Travels:"Deveswar travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Rahul travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+  
+                     
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Pochinki travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Zharki travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Shooting travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Georgepol travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Hospital travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Visakhapatnam", To:"Hyderbad" , Travels:"Ruins travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+  
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Gatka travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Quarry travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Ferry Pier travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes" },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Primorsk travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"School travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Mumbai", To:"Visakhapatnam" , Travels:"Rozhok travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" , No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+  
+  
+  
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"Gatka travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"Quarry travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"Ferry travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"Primorsk travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"School travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"Yes"  },
+  
+                     { From:"Hyderbad", To:"Bangalore" ,  Travels:"Rozhok travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,  No_of_seats:100 , Fare:1000 , AC:"No"  },
+  
+  
+  
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"Gatka travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"Quarry travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"Ferry travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"Primorsk travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"School travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"No"   },
+  
+                     { From:"Hyderbad", To:"Chennai" , Travels:"Rozhok travels", Arrival_time:"9:30pm" , Dept_Time:"5:30am" ,    No_of_seats:100 , Fare:1000 , AC:"Yes"   },
+                   ]
+  
+              function tokyo() {
+  
+                 
+  
+                    var two=document.getElementById("four").value;
+  
+                    var three=document.getElementById("five").value;
+  
+                    var c= document.getElementById("professor");
+  
+              
+  
+           src=  `<table border="2px" class="abcd"><tr> <th>Sl.No</th>  <th>Travels Name</th>  <th>From</th> <th>Arrival Time</th> <th>To</th>  <th>Dept Time</th>  <th>AC/NON AC</th>  <th>Fare</th>  <th> No.of seats </th>  <th> Booking </th> </tr>` ;
+  
+           var dis=" ";
+  
+           dis=src+dis;
+          b=0
+       var work=" ";
+
+                 for( var a=0; a<buses.length; a++ ) {
+  
+                        if( buses[a].From==two && buses[a].To==three ){
+  
+                            if( buses[a].AC == "Yes" ) {work="AC"}
+  
+                                else if ( buses[a].AC == "No") {work="Non_Ac"}
+       
+              b++                   
+  
+         dis= dis+ `<tr> <td>${b}</td>  <td>${buses[a].Travels}</td>  <td>${buses[a].From}</td>  <td>${buses[a].Arrival_time}</td>  <td>${buses[a].To}</td>  <td>${buses[a].Dept_Time}</td> <td>${work}</td>   <td>${buses[a].Fare}</td>  <td>${buses[a].No_of_seats}</td> <td> <button type="button"class="btn btn-primary"<a href="C:/Personal Data/frontend/learninghtml"> </a>  Book now </button></td> </tr>`;  
+             
+                                         
+                             }
+  
+                          } 
+  
+                           var str=dis+"</table>"   
+  
+                          c.innerHTML=str;
+  
+                       }
+        
+           </script>
+    </body>
+</html>
+
+
+
+<!--     one=one+ "<table border='1px'>" + "<tr>" + "<th>" +"Sl.No" + "</th>"+"<th>"+"Travels Name"+"</th>"+ "<th>"+" From" +"</th>"+ "<th>"+"Arrival Time"+"</th>"+"<th>"+ "To" +"</th>"+" <th>"+"Dept Time"+"</th>"+" <th>"+ "AC/NON AC"+"</th>"+"<th>"+"Fare"+"</th>"+"<th>"+ "No.of_seats" +"</th>"+"<th>"+" Booking "+"</th>"+"</tr>"+
+  
+       "<tr>"+"<td>"+b+"</td>"+"<td>"+buses[a].Travels+"</td>"+"<td>"+buses[a].From+"</td>"+"<td>"+buses[a].Arrival_time+"</td>"+"<td>"+buses[a].To +"</td>"+"<td>"+buses[a].Dept_Time+"</td>"+"<td>"+buses[a].AC+"</td>"+"<td>"+buses[a].Fare+"</td>"+"<td>"+buses[a].No_of_seats+"</td>"+"</tr>"+"<br>"+"</table>" -->
